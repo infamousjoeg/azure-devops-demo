@@ -1,0 +1,19 @@
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+
+- task: GetConjurSecret@1
+  inputs:
+    conjurApplianceURL: 'https://conjur.joegarcia.dev'
+    conjurAccount: 'cyberarkdemo'
+    conjurUsername: $(HOSTID)
+    conjurAPIKey: $(API_KEY)
+    ignoreSSL: false
+
+- bash: |
+  echo "Secrets retrieved:"
+  echo "  SECRET1: $(SECRET1)"
+  echo "$(SECRET1)" | sed 's/./& /g'
+  echo "  SECRET2: $(SECRET2)"
+  echo "$(SECRET2)" | sed 's/./& /g'
