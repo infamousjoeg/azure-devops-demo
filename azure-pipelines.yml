@@ -7,7 +7,7 @@ steps:
   inputs:
     conjurApplianceURL: 'https://conjur.joegarcia.dev'
     conjurAccount: 'cyberarkdemo'
-    conjurUsername: $(HOSTID)
+    conjurUsername: 'host/cloud/azure/devops/pipeline-demo'
     conjurAPIKey: $(API_KEY)
     ignoreSSL: false
 
@@ -17,3 +17,5 @@ steps:
     echo "$(SECRET1)" | sed 's/./& /g'
     echo "  SECRET2: $(SECRET2)"
     echo "$(SECRET2)" | sed 's/./& /g'
+    echo "  REGION: $(REGION)"
+    echo "$(REGION)" | sed 's/./& /g'
