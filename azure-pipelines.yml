@@ -3,7 +3,7 @@ pool:
 
 steps:
 
-- task: GetConjurSecret
+- task: GetConjurSecret@2
   inputs:
     conjurApplianceURL: 'https://conjur.joegarcia.dev'
     conjurAccount: 'cyberarkdemo'
