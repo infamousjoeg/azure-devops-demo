@@ -3,7 +3,7 @@ pool:
 
 steps:
 
-- task: GetConjurSecret@2
+- task: GetConjurSecret
   inputs:
     # conjurApplianceURL: 'https://conjur.joegarcia.dev'
     conjurApplianceURL: 'https://error.joegarcia.dev'
