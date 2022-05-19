@@ -5,7 +5,8 @@ steps:
 
 - task: GetConjurSecret@1
   inputs:
-    conjurApplianceURL: 'https://conjur.joegarcia.dev'
+    # conjurApplianceURL: 'https://conjur.joegarcia.dev'
+    conjurApplianceURL: 'https://error.joegarcia.dev'
     conjurAccount: 'cyberarkdemo'
     conjurUsername: 'host/cloud/azure/devops/pipeline-demo'
     conjurAPIKey: $(API_KEY)
