@@ -1,14 +1,15 @@
 # azure-devops-demo
 A demonstration using @cyberark Conjur's Azure DevOps Pipelines integration
 
+## Setup
+
+The Conjur Service Connection service connection needs to be configured prior to executing the pipeline.
+
+![image](https://user-images.githubusercontent.com/1924063/182889057-252edc86-cfbc-49b8-9f21-182eade6c2c5.png)
+
 ## How it works
 
-1. Pipeline is triggered within Azure DevOps Pipelines or via commit trigger.
-2. The GitHub repository is downloaded into a working environment created on a self-hosted agent pool.
-3. The `GetSecret` step authenticates to the Conjur service as the provided Host Identity.
-4. The integration then looks within the root directory of the workspace for a [secrets.yml](secrets.yml) file.
-5. If the [secrets.yml](secrets.yml) file is detected, it is read. This file defines the environment variable key and the secret variable path in Conjur to give as. (e.g. `ENV_VAR: !var path/to/secret/variable`)
-6. The final step `echo`s `SECRET1` and `SECRET2` to STDOUT while `sed` adds a space between each char to prevent masking for demonstration purposes.
+The Conjur Service Connection contains all the connection and secret information needed to securely retrieve a secret just-in-time from Conjur.  The secret value is then presented to the running pipeline as an environment variable defined within the service connection.  You may reference that variable from within the pipeline script to utilize the secret.
 
 ## License
 
