@@ -3,17 +3,11 @@ pool:
 
 steps:
 
-- task: GetConjurSecret@1
+- task: getConjureSecretSC@0
   inputs:
-    conjurApplianceURL: 'https://conjur.joegarcia.dev'
-    conjurAccount: 'cyberarkdemo'
-    conjurUsername: 'host/cloud/azure/devops/pipeline-demo'
-    conjurAPIKey: $(API_KEY)
-    ignoreSSL: false
+    ConjurService: 'pipeline-demo-secret1'
 
 - bash: |
     echo "Secrets retrieved:"
     echo "  SECRET1: $(SECRET1)"
     echo "$(SECRET1)" | sed 's/./& /g'
-    echo "  SECRET2: $(SECRET2)"
-    echo "$(SECRET2)" | sed 's/./& /g'
